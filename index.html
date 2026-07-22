@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Rafa | Desenvolvedor & Designer</title>
+    <meta name="description" content="Portfólio de Rafa, Desenvolvedor e Criativo.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo" data-i18n="logo">rafa.</a>
+            
+            <ul class="nav-links">
+                <li><a href="#sobre" data-i18n="navAbout">Sobre</a></li>
+                <li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
+                <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+                <li><a href="#contato" data-i18n="navContact">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Mudar Idioma">EN</button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar Tema">
+                    <!-- Sun Icon (visible in dark mode, but we will handle logic in JS if needed. For now, a generic contrast icon) -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="menu-toggle" aria-label="Abrir menu" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#sobre" class="mobile-link" data-i18n="navAbout">Sobre</a></li>
+            <li><a href="#projetos" class="mobile-link" data-i18n="navProjects">Projetos</a></li>
+            <li><a href="#skills" class="mobile-link" data-i18n="navSkills">Skills</a></li>
+            <li><a href="#contato" class="mobile-link" data-i18n="navContact">Contato</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero section-padding">
+            <canvas id="hero-grid-canvas" class="hero-grid-canvas"></canvas>
+            <div class="hero-bg-shapes"></div>
+            <div class="container hero-container">
+                <h1 class="hero-title reveal-item interactive-heading" id="interactive-title">
+                    <span class="custom-tooltip" data-i18n="tooltipHero">Tente arrastar as letras.</span>
+                    <!-- PLACEHOLDER: frase de efeito do hero -->
+                    <span data-i18n="heroTitle">Construindo experiências digitais com <i class="serif-italic">código</i> e <i class="serif-italic">design</i>.</span>
+                </h1>
+                <p class="hero-subtitle reveal-item" data-i18n="heroSubtitle">
+                    <!-- PLACEHOLDER: subtexto hero -->
+                    Olá, sou Rafa. Desenvolvedor e criativo em formação, apaixonado por interfaces limpas e interações bem pensadas.
+                </p>
+                <div class="hero-actions reveal-item">
+                    <a href="#projetos" class="btn btn-primary" data-i18n="heroBtnProjects">Ver projetos</a>
+                    <a href="#contato" class="btn btn-secondary" data-i18n="heroBtnContact">Contato</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section id="sobre" class="sobre section-padding bg-secondary">
+            <div class="container grid-2-cols">
+                <div class="sobre-texto reveal-item">
+                    <h2 class="section-title" data-i18n="aboutTitle">Sobre mim</h2>
+                    <div class="sobre-conteudo" data-i18n="aboutContent">
+                        <!-- PLACEHOLDER: parágrafos sobre -->
+                        <p>Sou um desenvolvedor focado no front-end, com um olhar atento para o design e a experiência do usuário. Acredito que a tecnologia deve servir para criar soluções elegantes e acessíveis.</p>
+                        <p>Atualmente, estou me aprofundando no ecossistema moderno da web, sempre buscando unir estética e performance. Quando não estou codando, provavelmente estou estudando tipografia ou explorando novas ferramentas de prototipação.</p>
+                    </div>
+                </div>
+                <div class="sobre-visual reveal-item tilt-wrapper" style="cursor: pointer;">
+                    <div class="tilt-element aspect-square" style="width: 100%; height: 100%;">
+                        <div class="flip-card-container" style="width: 100%; height: 100%;">
+                            <div class="flip-card-inner" id="about-flip-card">
+                                <div class="flip-card-front">
+                                    <div class="tilt-glare"></div>
+                                    <img src="images/perfil.jpg" alt="Foto de perfil" class="image-placeholder aspect-square" style="width: 100%; height: 100%; object-fit: cover; background: none;">
+                                </div>
+                                <div class="flip-card-back aspect-square">
+                                    <div id="about-info-content" style="width: 100%;">
+                                        <ul>
+                                            <li><strong data-i18n="aboutInfoAgeLbl">Idade</strong> <span data-i18n="aboutInfoAgeVal">24 anos</span></li>
+                                            <li><strong data-i18n="aboutInfoLocLbl">Mora em</strong> <span data-i18n="aboutInfoLocVal">Brasil</span></li>
+                                            <li><strong data-i18n="aboutInfoEduLbl">Formação</strong> <span data-i18n="aboutInfoEduVal">Design & Tecnologia</span></li>
+                                            <li><strong data-i18n="aboutInfoSpecLbl">Especialidade</strong> <span data-i18n="aboutInfoSpecVal">Interfaces (UI/UX) & Frontend</span></li>
+                                            <li><strong data-i18n="aboutInfoLangLbl">Linguagens</strong> <span data-i18n="aboutInfoLangVal">HTML, CSS, JavaScript</span></li>
+                                            <li><strong data-i18n="aboutInfoLearnLbl">Aprendendo</strong> <span data-i18n="aboutInfoLearnVal">Física Web e Animações 3D</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos Section -->
+        <section id="projetos" class="projetos section-padding">
+            <div class="container">
+                <h2 class="section-title reveal-item" data-i18n="projectsTitle">Projetos selecionados</h2>
+                
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <article class="project-card reveal-item">
+                        <div class="project-image">
+                            <!-- PLACEHOLDER: imagem do projeto -->
+                            <div class="image-placeholder aspect-video" data-i18n="proj1Image">Imagem Projeto 1</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <!-- PLACEHOLDER: tags do projeto -->
+                                <span class="tag tech-tag">React</span>
+                                <span class="tag tech-tag">Tailwind</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="proj1Title"><!-- PLACEHOLDER: titulo do projeto -->E-commerce Minimalista</h3>
+                            <p class="project-desc" data-i18n="proj1Desc"><!-- PLACEHOLDER: desc do projeto -->Uma loja virtual focada na conversão e experiência limpa.</p>
+                            <a href="#" class="project-link" aria-label="Ver projeto E-commerce Minimalista" data-i18n-aria="proj1Aria">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 -->
+                    <article class="project-card reveal-item">
+                        <div class="project-image">
+                            <!-- PLACEHOLDER: imagem do projeto -->
+                            <div class="image-placeholder aspect-video" data-i18n="proj2Image">Imagem Projeto 2</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <!-- PLACEHOLDER: tags do projeto -->
+                                <span class="tag tech-tag">Vanilla JS</span>
+                                <span class="tag tech-tag">CSS</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="proj2Title"><!-- PLACEHOLDER: titulo do projeto -->Dashboard Analítico</h3>
+                            <p class="project-desc" data-i18n="proj2Desc"><!-- PLACEHOLDER: desc do projeto -->Interface de dados complexos simplificada para uso diário.</p>
+                            <a href="#" class="project-link" aria-label="Ver projeto Dashboard Analítico" data-i18n-aria="proj2Aria">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 3 -->
+                    <article class="project-card reveal-item">
+                        <div class="project-image">
+                            <!-- PLACEHOLDER: imagem do projeto -->
+                            <div class="image-placeholder aspect-video" data-i18n="proj3Image">Imagem Projeto 3</div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <!-- PLACEHOLDER: tags do projeto -->
+                                <span class="tag tech-tag">Figma</span>
+                                <span class="tag tech-tag">Design System</span>
+                            </div>
+                            <h3 class="project-title" data-i18n="proj3Title"><!-- PLACEHOLDER: titulo do projeto -->App de Finanças</h3>
+                            <p class="project-desc" data-i18n="proj3Desc"><!-- PLACEHOLDER: desc do projeto -->Estudo de caso completo de UI/UX para gestão financeira.</p>
+                            <a href="#" class="project-link" aria-label="Ver projeto App de Finanças" data-i18n-aria="proj3Aria">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section-padding bg-secondary" style="position: relative; overflow: hidden;">
+            <div class="container">
+                <h2 class="section-title reveal-item interactive-heading" id="skills-title">
+                    <span class="custom-tooltip" data-i18n="tooltipSkills">Clique para ativar a gravidade!</span>
+                    <span data-i18n="skillsTitle">Skills e Ferramentas</span>
+                </h2>
+                <div class="skills-grid reveal-item" id="skills-grid">
+                    <!-- Categoria 1 -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title" data-i18n="skillsCat1">Frontend</h3>
+                        <div class="skills-list">
+                            <!-- PLACEHOLDER: skills -->
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript (Basics)</span>
+                        </div>
+                    </div>
+                    <!-- Categoria 2 -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title" data-i18n="skillsCat2">Design</h3>
+                        <div class="skills-list">
+                            <!-- PLACEHOLDER: skills -->
+                            <span class="skill-badge">Figma</span>
+                            <span class="skill-badge">UI Design</span>
+                            <span class="skill-badge">Web Design</span>
+                            <span class="skill-badge">Wireframing</span>
+                            <span class="skill-badge" data-i18n="skillProto">Prototipação</span>
+                        </div>
+                    </div>
+                    <!-- Categoria 3 -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title" data-i18n="skillsCat3">Outros</h3>
+                        <div class="skills-list">
+                            <!-- PLACEHOLDER: skills -->
+                            <span class="skill-badge">Git & GitHub</span>
+                            <span class="skill-badge" data-i18n="skillAcc">Acessibilidade</span>
+                            <span class="skill-badge" data-i18n="skillResp">Design Responsivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section id="contato" class="contato section-padding">
+            <div class="container grid-2-cols">
+                <div class="contato-info reveal-item">
+                    <h2 class="section-title" data-i18n="contactTitle">Vamos conversar?</h2>
+                    <p class="contato-desc" data-i18n="contactDesc">
+                        <!-- PLACEHOLDER: texto de contato -->
+                        Estou sempre aberto a novas oportunidades e desafios interessantes. Mande uma mensagem ou me encontre nas redes.
+                    </p>
+                    <div class="social-links">
+                        <!-- PLACEHOLDER: links sociais -->
+                        <a href="https://www.linkedin.com/in/rafael-lemos-rocha-7b14a4423/?skipRedirect=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://github.com/aacomputador001-spec" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aacomputador001@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contato-form-wrapper reveal-item">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/maqrbvlo" method="POST" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label" data-i18n="formNameLabel">Seu nome</label>
+                            <span class="form-error" data-i18n="formNameError">Nome é obrigatório</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label" data-i18n="formEmailLabel">Seu email</label>
+                            <span class="form-error" data-i18n="formEmailError">Email inválido</span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-input" placeholder=" " rows="4" required></textarea>
+                            <label for="message" class="form-label" data-i18n="formMessageLabel">Sua mensagem</label>
+                            <span class="form-error" data-i18n="formMessageError">Mensagem é obrigatória</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                            <span class="btn-text" data-i18n="formSubmitBtn">Enviar mensagem</span>
+                            <span class="btn-spinner"></span>
+                            <span class="btn-success">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span data-i18n="formSuccess">Enviado</span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="footer-text"><span data-i18n="footerText">© <span id="current-year"></span> Rafa. Desenvolvido com código e design.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/scrollReveal.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/progressBar.js"></script>
+    <script src="js/interactiveTitle.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/physicsSkills.js"></script>
+    <script src="js/heroGrid.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
