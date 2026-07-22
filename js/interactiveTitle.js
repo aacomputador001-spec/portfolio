@@ -13,16 +13,29 @@ window.initInteractiveTitle = function() {
         if (node.nodeType === Node.TEXT_NODE) {
             const text = node.textContent;
             const fragment = document.createDocumentFragment();
+            let currentWordSpan = null;
+            
             for (let i = 0; i < text.length; i++) {
                 const char = text[i];
                 if (char === ' ' || char === '\n' || char === '\t') {
+                    if (currentWordSpan) {
+                        fragment.appendChild(currentWordSpan);
+                        currentWordSpan = null;
+                    }
                     fragment.appendChild(document.createTextNode(char));
                 } else {
+                    if (!currentWordSpan) {
+                        currentWordSpan = document.createElement('span');
+                        currentWordSpan.style.whiteSpace = 'nowrap';
+                    }
                     const span = document.createElement('span');
                     span.textContent = char;
                     span.className = 'draggable-letter';
-                    fragment.appendChild(span);
+                    currentWordSpan.appendChild(span);
                 }
+            }
+            if (currentWordSpan) {
+                fragment.appendChild(currentWordSpan);
             }
             return fragment;
         } else if (node.nodeType === Node.ELEMENT_NODE) {
