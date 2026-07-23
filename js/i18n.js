@@ -33,15 +33,16 @@ const translations = {
         // Tooltips
         tooltipHero: "Tente arrastar as letras.",
         tooltipSkills: "Clique para ativar a gravidade!",
+        tooltipAbout: "Clique para mais",
 
         projectsTitle: "Projetos selecionados",
         proj1Image: "Imagem Projeto 1",
         proj2Image: "Imagem Projeto 2",
         proj3Image: "Imagem Projeto 3",
 
-        proj1Title: "E-commerce Minimalista",
-        proj1Desc: "Uma loja virtual focada na conversão e experiência limpa.",
-        proj1Aria: "Ver projeto E-commerce Minimalista",
+        proj1Title: "Landing Page Cleia Doces",
+        proj1Desc: "Landing Page focada na exibição de doces caseiros.",
+        proj1Aria: "Ver projeto Landing Page Cleia Doces",
 
         proj2Title: "Dashboard Analítico",
         proj2Desc: "Interface de dados complexos simplificada para uso diário.",
@@ -107,15 +108,16 @@ const translations = {
         // Tooltips
         tooltipHero: "Try dragging the letters.",
         tooltipSkills: "Click to enable gravity!",
+        tooltipAbout: "Click for more",
 
         projectsTitle: "Selected projects",
         proj1Image: "Project 1 Image",
         proj2Image: "Project 2 Image",
         proj3Image: "Project 3 Image",
 
-        proj1Title: "Minimalist E-commerce",
-        proj1Desc: "A virtual store focused on conversion and a clean experience.",
-        proj1Aria: "View Minimalist E-commerce project",
+        proj1Title: "Cleia Doces Landing Page",
+        proj1Desc: "Landing page focused on showcasing homemade sweets.",
+        proj1Aria: "View the Cleia Doces Landing Page project",
 
         proj2Title: "Analytics Dashboard",
         proj2Desc: "Complex data interface simplified for daily use.",

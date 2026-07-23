@@ -23,8 +23,8 @@ if (!isTouchDevice && cursor) {
     
     loop();
 
-    // Hover effect on links and buttons
-    const interactables = document.querySelectorAll('a, button, .project-card, .skill-badge');
+    // Hover effect on links, buttons and headings
+    const interactables = document.querySelectorAll('a, button, .project-card, .skill-badge, h1, h2, h3, h4, h5, h6');
     interactables.forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));

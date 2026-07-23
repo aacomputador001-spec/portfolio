@@ -789,7 +789,8 @@ p {
     display: inline-block;
 }
 
-.interactive-heading .custom-tooltip {
+.interactive-heading .custom-tooltip,
+.has-tooltip .custom-tooltip {
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -811,7 +812,8 @@ p {
     line-height: 1.5;
 }
 
-.interactive-heading .custom-tooltip::after {
+.interactive-heading .custom-tooltip::after,
+.has-tooltip .custom-tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -822,7 +824,8 @@ p {
     border-color: var(--color-text-primary) transparent transparent transparent;
 }
 
-.interactive-heading:hover .custom-tooltip {
+.interactive-heading:hover .custom-tooltip,
+.has-tooltip:hover .custom-tooltip {
     opacity: 1;
     transform: translateX(-50%) translateY(-8px);
 }
